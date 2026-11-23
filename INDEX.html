@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thambi AI</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+      background: #10131c;
+        color: white;
+          font-family: Arial, sans-serif;
+          }
+
+          header {
+            padding: 20px;
+              background: #1b2232;
+                text-align: center;
+                  border-bottom: 1px solid #30394b;
+                  }
+
+                  header h1 {
+                    color: #65baff;
+                      margin: 0;
+                      }
+
+                      header p {
+                        color: #aaa;
+                          margin-bottom: 0;
+                          }
+
+                          #chat {
+                            padding: 15px;
+                              height: 75vh;
+                                overflow-y: auto;
+                                }
+
+                                .message {
+                                  margin: 12px 0;
+                                    padding: 12px;
+                                      border-radius: 14px;
+                                        max-width: 85%;
+                                          line-height: 1.5;
+                                          }
+
+                                          .bot {
+                                            background: #252e40;
+                                              text-align: left;
+                                              }
+
+                                              .user {
+                                                background: #1677ff;
+                                                  margin-left: auto;
+                                                  }
+
+                                                  .input-area {
+                                                    position: fixed;
+                                                      bottom: 0;
+                                                        width: 100%;
+                                                          padding: 12px;
+                                                            display: flex;
+                                                              gap: 8px;
+                                                                background: #1b2232;
+                                                                }
+
+                                                                input {
+                                                                  flex: 1;
+                                                                    padding: 14px;
+                                                                      border: none;
+                                                                        border-radius: 12px;
+                                                                          background: #30394b;
+                                                                            color: white;
+                                                                              font-size: 16px;
+                                                                              }
+
+                                                                              button {
+                                                                                padding: 14px 20px;
+                                                                                  background: #1684ff;
+                                                                                    border: none;
+                                                                                      border-radius: 12px;
+                                                                                        color: white;
+                                                                                          font-weight: bold;
+                                                                                          }
+                                                                                          </style>
+                                                                                          </head>
+
+                                                                                          <body>
+
+                                                                                          <header>
+                                                                                            <h1>🤖 Thambi-AI</h1>
+                                                                                              <p>உன் நண்பன் AI</p>
+                                                                                              </header>
+
+                                                                                              <div id="chat">
+                                                                                                <div class="message bot">
+                                                                                                    வணக்கம்! நான் Thambi-AI 🤗<br>
+                                                                                                        என்னிடம் என்ன வேண்டுமானாலும் கேள்!
+                                                                                                          </div>
+                                                                                                          </div>
+
+                                                                                                          <div class="input-area">
+                                                                                                            <input id="input" placeholder="உன் கேள்வியை எழுது..." />
+                                                                                                              <button onclick="sendMessage()">Send</button>
+                                                                                                              </div>
+
+                                                                                                              <script>
+                                                                                                              function sendMessage() {
+                                                                                                                const input = document.getElementById("input");
+                                                                                                                  const chat = document.getElementById("chat");
+                                                                                                                    const text = input.value.trim();
+
+                                                                                                                      if (!text) return;
+
+                                                                                                                        chat.innerHTML += `
+                                                                                                                            <div class="message user">${text}</div>
+                                                                                                                              `;
+
+                                                                                                                                input.value = "";
+
+                                                                                                                                  chat.innerHTML += `
+                                                                                                                                      <div class="message bot">
+                                                                                                                                            வணக்கம்! உன் message கிடைத்தது 😊
+                                                                                                                                                  உண்மையான AI இணைப்பை அடுத்த கட்டத்தில் சேர்ப்போம்!
+                                                                                                                                                      </div>
+                                                                                                                                                        `;
+
+                                                                                                                                                          chat.scrollTop = chat.scrollHeight;
+                                                                                                                                                          }
+
+                                                                                                                                                          document.getElementById("input").addEventListener("keydown", function(event) {
+                                                                                                                                                            if (event.key === "Enter") {
+                                                                                                                                                                sendMessage();
+                                                                                                                                                                  }
+                                                                                                                                                                  });
+                                                                                                                                                                  </script>
+
+                                                                                                                                                                  </body>
+                                                                                                                                                                  </html>
